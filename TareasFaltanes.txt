@@ -5,9 +5,10 @@ Ciudad-País sea única
 
 2. Visualizar todos los destinos disponibles.
 La estadía en cada destino por persona. (costo es la cantidad de días por el costo diario)
+PRONTO
 
 3. Modificar la cotización del dólar.
-PRONTO
+REVISAR - Sale al menú principal cuando se ingresa una letra o un valor negativo
 
 4. Registrar excursiones (precarga).
 A cada excursión se le agregarán al menos 2 destinos.
@@ -17,8 +18,10 @@ PRONTO
 5. Listar todas las excursiones ingresadas.
 incluyendo su costo estimado por persona. El costo de la excursión es la suma del costo de sus destinos. 
 Ese costo se mostrará en dólares y su conversión a pesos según la cotización actual del dólar.
+PRONTO
 
 6. Listar excursiones que vayan a un destino dado entre dos fechas.
 Dados un destino y dos fechas, mostrar las excursiones que vayan a ese destino (a la ciudad y país del
 destino) entre ambas fechas. El listado tendrá el mismo formato que el anterior.
+
 

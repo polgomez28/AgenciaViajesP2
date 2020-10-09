@@ -13,6 +13,9 @@ namespace Dominio
         private string pais = "";
         private decimal costo = 0;
         private decimal cantidadDias = 0;
+        private decimal costoEstadia = 0;
+        private decimal costoEstadiaPesos = 0;
+        
         // Constructor
         public Destino(string ciudad, string pais, decimal costo, decimal cantidadDias)
         {
@@ -21,7 +24,25 @@ namespace Dominio
             this.costo = costo;
             this.cantidadDias = cantidadDias;
         }
-
+        // Propiedades
+        public decimal Costo
+        {
+            get { return costo; }
+        }
+        public decimal CantidadDias
+        {
+            get { return cantidadDias; }
+        }
+        public decimal CostoEstadia
+        {
+            set { costoEstadia = value; }
+            get { return costoEstadia; }
+        }
+        public decimal CostoEstadiaPesos
+        {
+            set { costoEstadiaPesos = value; }
+            get { return costoEstadiaPesos; }
+        }
         public string Ciudad
         {
             get { return ciudad; }
@@ -40,6 +61,8 @@ namespace Dominio
             respuesta += "Ciudad: " + ciudad + "\n";
             respuesta += "Costo diario: " + costo + "\n";
             respuesta += "Cantidad de días: " + cantidadDias + "\n";
+            respuesta += "Costo estadía por persona: u$s" + costoEstadia + "\n";
+            respuesta += "Costo estadía por persona: $" + costoEstadiaPesos + "\n";
             return respuesta;
         }
         //Validar string mayores a 3 caracteres

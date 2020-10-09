@@ -12,7 +12,7 @@ namespace Dominio
         private List<Excursion> excursiones = new List<Excursion>();
         private List<Destino> destinos = new List<Destino>();
         private List<CompaniaAerea> companiasAereas = new List<CompaniaAerea>();
-        private static decimal dolar = 0;
+        private static decimal dolar = 42;
         // Propiedades
         //public List<Excursion> Excursiones
         //{
@@ -36,6 +36,7 @@ namespace Dominio
             PrecargaCompaniaAerea();
             PrecargasDestinos();
             PrecargarExcursiones();
+            //AsignarCostoPorPersona();
         }
         // Precarga Comanias aereas
 
@@ -109,11 +110,6 @@ namespace Dominio
             fecha = new DateTime(2020, 06, 01);
             AltaExcursionesInternacionales("Roma", fecha, 4, 25, 1200, 4, DevolverDestino("Roma", "Italia", "Atenas", "Italia"));
         }
-
-        //*********************************************************
-        //Generar método que agregue PrecargarDestinosAExcursiones
-        //*********************************************************
-
         // Alta compania aerea
         private bool AltaCompaniaAerea(string pais, int idCompania)
         {
@@ -132,17 +128,6 @@ namespace Dominio
 
             return exito;
         }
-        // Alta Destinos
-        /*public bool AgregarDestinos(string ciudad, string pais, decimal costo, decimal cantidadDias)
-        {
-            bool exito = false;
-            Destino unD = new Destino(ciudad, pais, costo, cantidadDias);
-
-            destinos.Add(unD);
-            exito = true;
-            return exito;
-        }*/
-
         //Buscar compania a partir del id
         private bool BuscarCompania(int idCompania)
         {
@@ -218,8 +203,7 @@ namespace Dominio
             }
             return encontre;
         }
-
-
+        
         public List<Excursion> Excursiones()
         {
             List<Excursion> asist = new List<Excursion>();
@@ -293,6 +277,8 @@ namespace Dominio
             if (BuscarDestino(ciudad) == null)
             {
                 Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
+                unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
+                unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
                 destinos.Add(unDestino);
                 exito = true;
             }
