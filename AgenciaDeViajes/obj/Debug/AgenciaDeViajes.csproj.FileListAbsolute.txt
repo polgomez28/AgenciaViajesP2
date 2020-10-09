@@ -1,0 +1,10 @@
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe.config
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.pdb
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\bin\Debug\Dominio.dll
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\bin\Debug\Dominio.pdb
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csprojAssemblyReference.cache
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CoreCompileInputs.cache
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CopyComplete
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.exe
+D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb
