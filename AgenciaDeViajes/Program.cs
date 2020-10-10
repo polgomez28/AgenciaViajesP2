@@ -113,7 +113,25 @@ namespace AgenciaDeViajes
                 valido = int.TryParse(Console.ReadLine(), out num);
                 if (!valido)
                 {
-                    Console.WriteLine("Solo se admiten numeros");
+                    Console.WriteLine("\nSolo se admiten numeros\n");
+                }
+
+            } while (!valido);
+
+            return num;
+        }
+
+        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        {
+            decimal num;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = decimal.TryParse(Console.ReadLine(), out num);
+                if (!valido)
+                {
+                    Console.WriteLine("\nSolo se admiten numeros\n");
                 }
 
             } while (!valido);
@@ -180,35 +198,53 @@ namespace AgenciaDeViajes
             int opcion;
             bool salir = false;
             decimal cotiz = unaAgencia.MostrarDolar();
-            Console.WriteLine("\nLa cotizacion actual del dólar es: $ " + cotiz);
+            Console.WriteLine("\nLa cotización actual del dólar es: $ " + cotiz);
             do
             {
-                Console.WriteLine("Desea modificar la cotizacion?\n");
-                opcion = PedirNumero("1 - Si\n2 - No");
+                opcion = PedirNumero("\nDesea modificar la cotización?\n1 - Si\n2 - No");
                 if (opcion == 1)
                 {
                     ModificarCotizacion();
                     salir = true;
                 }
-            } while (opcion == 1 && !salir);
+                else if (opcion == 2)
+                {
+                    salir = true;
+                }
+                else
+                {
+                    Console.WriteLine("\nDebe ingresar una opción valida");
+                }
+
+            } while (!salir);
 
         }
 
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
-            Console.WriteLine("Ingrese la nueva cotizacion: ");
-            decimal.TryParse(Console.ReadLine(), out cotizacion);
+            string mensajeOk = "\nLa cotización actualizada es: $ ";
+            string mensajeSalir = "Presione cualquier tecla para volver al menú";
+            cotizacion = PedirDecimal("Ingrese la nueva cotización: ");
             bool valido = unaAgencia.ModificarDolar(cotizacion);
             if (!valido)
             {
-                Console.WriteLine("El valor debe ser positivo");
-
+                do
+                {
+                    decimal num = PedirDecimal();
+                    valido = unaAgencia.ModificarDolar(num);
+                    if (valido)
+                    {
+                        Console.WriteLine(mensajeOk + num);
+                        Console.WriteLine(mensajeSalir);
+                        Console.ReadKey();
+                    }
+                } while (!valido);
             }
             else
             {
-                Console.WriteLine("\nLa cotizacion actualizada es: $ " + cotizacion);
-                Console.WriteLine("Presione cualquier tecla para continuar");
+                Console.WriteLine(mensajeOk + cotizacion);
+                Console.WriteLine(mensajeSalir);
                 Console.ReadKey();
             }
         }

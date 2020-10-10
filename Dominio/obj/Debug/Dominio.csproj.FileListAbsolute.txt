@@ -4,3 +4,9 @@ D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\Domini
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\Dominio\obj\Debug\Dominio.dll
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\bin\Debug\Dominio.dll
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.dll
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.pdb
