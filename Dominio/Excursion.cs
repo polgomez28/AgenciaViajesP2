@@ -13,6 +13,8 @@ namespace Dominio
         private static int ultid = 1000;
         private string descripcion = "";
         private DateTime fecha;
+        private decimal totalUsd = 0;
+        private decimal totalPeso = 0;
         private int diasTraslados = 0;
         private int stockLugares = 0;
         private List<Destino> destinos = new List<Destino>();
@@ -67,13 +69,18 @@ namespace Dominio
                 for (int i = 0; i < destinos.Count; i++)
                 {
                     respuesta += destinos[i] + "\n";
+                    totalUsd += destinos[i].CostoEstadia;
+                    totalPeso += destinos[i].CostoEstadiaPesos;
                 }
+                respuesta += ("El Costo total de la excursion en Dolares es de: U$S " + totalUsd + "\n");
+                respuesta += ("El Costo total de la excursion en Pesos es de: $ " + totalPeso + "\n");
+                respuesta += "--------------------------------------------------------------------------------" + "\n";
+
             }
-            respuesta += "-----------------------------------" + "\n";
             return respuesta;
         }
-        // Buscar destino, teniendo ciudad-pais.
-        public bool ExisteDestino(string ciudad, string pais)
+            // Buscar destino, teniendo ciudad-pais.
+            public bool ExisteDestino(string ciudad, string pais)
         {
             int i = 0;
             bool encontre = false;
