@@ -8,14 +8,16 @@ namespace Dominio
 {
     public class Internacional : Excursion
     {
-
-        // Atributos 
+        #region Atributos
         private CompaniaAerea compania;
+        #endregion
+        #region Constructor con herencia
         // Constructor
         public Internacional(string descipcion, DateTime fecha, int diasTraslados, int stockLugares, CompaniaAerea compania, List<Destino> destinos) : base(descipcion, fecha, diasTraslados, stockLugares, destinos)
         {
             this.compania = compania;
         }
+        #endregion
         #region Métodos
         public override string ToString()
         {

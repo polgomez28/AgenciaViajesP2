@@ -192,7 +192,7 @@ namespace AgenciaDeViajes
             diasTraslados = PedirNumero("Indique los días");
             stockLugares = PedirNumero("Ingrese los lugares que quedan");
             idExcursion = PedirNumero("Ingresar numero de id");
-            
+
         }
 
         // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
@@ -267,7 +267,7 @@ namespace AgenciaDeViajes
 
         private static void ListarExcursionesEnFecha()
         {
-            
+
             DateTime desde = PedirFecha("Ingrese Fecha de ida dd/mm/aaaa");
             DateTime hasta = PedirFecha("Ingrese Fecha de vuelta dd/mm/aaaa");
             List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta);
