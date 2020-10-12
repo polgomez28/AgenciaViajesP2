@@ -20,18 +20,18 @@ namespace AgenciaDeViajes
             while (!salir)
             {
                 Console.Clear();
-                Console.WriteLine("----------------------------------------------------------" + "\n");
-                Console.WriteLine("                      AGENCIA DE VIAJES                   " + "\n");
-                Console.WriteLine("                           MENU                           " + "\n");
-                Console.WriteLine("----------------------------------------------------------" + "\n");
-                Console.WriteLine("                 1- Ingresa un destino                    " + "\n");
-                Console.WriteLine("                 2- Listar todos los destinos             " + "\n");
-                Console.WriteLine("                 3- Cotización del dolar                  " + "\n");
-                Console.WriteLine("                 4- Registrar excursiones                 " + "\n");
-                Console.WriteLine("                 5- Listar excursiones                    " + "\n");
-                Console.WriteLine("                 6- Listar excursiones en fecha dada      " + "\n");
-                Console.WriteLine("                 7- Salir                                 " + "\n");
-                Console.WriteLine("----------------------------------------------------------" + "\n");
+                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
+                Console.WriteLine("                      AGENCIA DE VIAJES                                         " + "\n");
+                Console.WriteLine("                           MENU                                                 " + "\n");
+                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
+                Console.WriteLine("          1- Ingresar un destino                                                " + "\n");
+                Console.WriteLine("          2- Visualizar todos los destinos disponibles                          " + "\n");
+                Console.WriteLine("          3- Cotización del dolar                                               " + "\n");
+                Console.WriteLine("          4- Registrar excursiones (Precargas)                                  " + "\n");
+                Console.WriteLine("          5- Listar todas las excursiones                                       " + "\n");
+                Console.WriteLine("          6- Listar excursiones que vayan a un destino dado entre dos fechas.   " + "\n");
+                Console.WriteLine("          7- Salir                                                              " + "\n");
+                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
                 int.TryParse(Console.ReadLine(), out opcion);
 
                 switch (opcion)
