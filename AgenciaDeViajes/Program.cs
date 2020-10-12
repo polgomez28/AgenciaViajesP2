@@ -10,8 +10,9 @@ namespace AgenciaDeViajes
     public class Program
 
     {
+        #region Creación de la empresa
         static Agencia unaAgencia = new Agencia();
-        //
+        #endregion
         static void Main(string[] args)
         {
             int opcion;
@@ -47,7 +48,7 @@ namespace AgenciaDeViajes
                         MostrarCotizacion();
                         break;
                     case 4:
-                        AltaExcursion();
+                        Console.WriteLine("Ya se encuentran registradas (Precargas)");
                         break;
                     case 5:
                         ListarExcursiones();
@@ -65,80 +66,7 @@ namespace AgenciaDeViajes
 
 
         }
-
-        private static string PedirTexto(string mensaje)
-        {
-            Console.WriteLine(mensaje);
-            string texto = Console.ReadLine();
-            return texto;
-        }
-        //Muestro la lista excursiones
-
-        private static void MostrarListaExcursiones(List<Excursion> asist, string msgError)
-        {
-            if (asist.Count > 0)
-            {
-                foreach (Excursion unExcursion in asist)
-                {
-                    Console.WriteLine(unExcursion);
-                }
-            }
-            else
-            {
-                Console.WriteLine(msgError);
-            }
-        }
-        // Muestra en pantalla la lista de destinos si los hubiera
-        private static void MostrarListaDestinos(List<Destino> asist, string msgError)
-        {
-            if (asist.Count > 0)
-            {
-                foreach (Destino unDestino in asist)
-                {
-                    Console.WriteLine(unDestino);
-                }
-            }
-            else
-            {
-                Console.WriteLine(msgError);
-            }
-        }
-        private static int PedirNumero(string mensaje = "Ingrese el numero")
-        {
-            int num;
-            bool valido = false;
-            do
-            {
-                Console.WriteLine(mensaje);
-                valido = int.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
-
-            } while (!valido);
-
-            return num;
-        }
-
-        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
-        {
-            decimal num;
-            bool valido = false;
-            do
-            {
-                Console.WriteLine(mensaje);
-                valido = decimal.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
-
-            } while (!valido);
-
-            return num;
-        }
-
+        #region Case1
         private static void IngresaDestino()
         {
             string ciudad, pais;
@@ -162,37 +90,30 @@ namespace AgenciaDeViajes
                 }
             }
         }
-
-        private static void AltaExcursion()
-        {
-            string descripcion;
-            DateTime fecha;
-            int diasTraslados;
-            int stockLugares;
-            int idExcursion;
-            bool esInteres;
-            descripcion = PedirTexto("Ingrese la descripcion de la excursion");
-            //fecha = PedirTexto("Ingrese la fecha");
-            diasTraslados = PedirNumero("Indique los días");
-            stockLugares = PedirNumero("Ingrese los lugares que quedan");
-            idExcursion = PedirNumero("Ingresar numero de id");
-            //esInteres = PedirTexto("S/N")
-        }
-
-
-        // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
-        private static void ListarExcursiones()
-        {
-            List<Excursion> asist = unaAgencia.Excursiones(); // obtiene una lista de excursiones generada desde el método en Agencia
-            MostrarListaExcursiones(asist, "No hay excursiones.");
-        }
+        #endregion
+        #region Case2
         private static void ListarDestinos()
         {
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
-
-
+        // Muestra en pantalla la lista de destinos si los hubiera
+        private static void MostrarListaDestinos(List<Destino> asist, string msgError)
+        {
+            if (asist.Count > 0)
+            {
+                foreach (Destino unDestino in asist)
+                {
+                    Console.WriteLine(unDestino);
+                }
+            }
+            else
+            {
+                Console.WriteLine(msgError);
+            }
+        }
+        #endregion
+        #region Case3
         private static void MostrarCotizacion()
         {
             int opcion;
@@ -219,7 +140,7 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
-
+        // Se modifica la cotización
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
@@ -248,5 +169,71 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
+        #endregion
+        #region Case5
+        // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
+        private static void ListarExcursiones()
+        {
+            List<Excursion> asist = unaAgencia.Excursiones(); // obtiene una lista de excursiones generada desde el método en Agencia
+            MostrarListaExcursiones(asist, "No hay excursiones.");
+        }
+        //Muestro la lista excursiones
+        private static void MostrarListaExcursiones(List<Excursion> asist, string msgError)
+        {
+            if (asist.Count > 0)
+            {
+                foreach (Excursion unExcursion in asist)
+                {
+                    Console.WriteLine(unExcursion);
+                }
+            }
+            else
+            {
+                Console.WriteLine(msgError);
+            }
+        }
+        #endregion
+        #region Otros Métodos
+        private static string PedirTexto(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+            string texto = Console.ReadLine();
+            return texto;
+        }
+        private static int PedirNumero(string mensaje = "Ingrese el numero")
+        {
+            int num;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = int.TryParse(Console.ReadLine(), out num);
+                if (!valido)
+                {
+                    Console.WriteLine("\nSolo se admiten numeros\n");
+                }
+
+            } while (!valido);
+
+            return num;
+        }
+        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        {
+            decimal num;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = decimal.TryParse(Console.ReadLine(), out num);
+                if (!valido)
+                {
+                    Console.WriteLine("\nSolo se admiten numeros\n");
+                }
+
+            } while (!valido);
+
+            return num;
+        }
+        #endregion
     }
 }

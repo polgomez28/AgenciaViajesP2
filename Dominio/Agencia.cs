@@ -162,7 +162,7 @@ namespace Dominio
             }
             return exito;
         }
-        #region
+        #endregion
         #region Métodos de busqueda
         //Buscar compania a partir del id
         private bool BuscarCompania(int idCompania)
@@ -241,6 +241,7 @@ namespace Dominio
             return destino;
         }
         #endregion
+        #region Listas
         public List<Excursion> Excursiones()
         {
             List<Excursion> asist = new List<Excursion>();
@@ -259,23 +260,6 @@ namespace Dominio
             }
             return asist;
         }
-        //Mostrar Cotización
-        public decimal MostrarDolar()
-        {
-            return dolar;
-        }
-        //Modificar Cotización
-        public bool ModificarDolar(decimal numero)
-        {
-            bool valido = false;
-            if (numero > 0)
-            {
-                dolar = numero;
-                valido = true;
-            }
-            return valido;
-        }
-        
         // Genero la lista de destinos para ser asignadas a las excursiones
         public List<Destino> DevolverDestino(string ciudad, string pais, string ciudad2, string pais2)
         {
@@ -308,6 +292,24 @@ namespace Dominio
             }
             return bandera;
         }
-
+        #endregion
+        #region Método Cotizacion
+        //Mostrar Cotización
+        public decimal MostrarDolar()
+        {
+            return dolar;
+        }
+        //Modificar Cotización
+        public bool ModificarDolar(decimal numero)
+        {
+            bool valido = false;
+            if (numero > 0)
+            {
+                dolar = numero;
+                valido = true;
+            }
+            return valido;
+        }
+        #endregion
     }
 }
