@@ -33,6 +33,12 @@ namespace Dominio
         {
             get { return destinos; }
         }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
         public int Id
         {
             get { return id; }
@@ -52,7 +58,7 @@ namespace Dominio
             string respuesta = "";
             respuesta += "Id: " + id + "\n";
             respuesta += "Descripcion: " + descripcion + "\n";
-            respuesta += "Fecha: " + fecha + "\n";
+            respuesta += "Fecha: " + fecha.ToShortDateString() + "\n";
             respuesta += "Días traslados: " + diasTraslados + "\n";
             respuesta += "Stock: " + stockLugares + "\n";
             respuesta += "DESTINOS " + "\n";

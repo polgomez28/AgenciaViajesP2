@@ -163,8 +163,11 @@ namespace Dominio
             }
             return exito;
         }
+        
+
         #endregion
         #region Métodos de busqueda
+
         //Buscar compania a partir del id
         private bool BuscarCompania(int idCompania)
         {
@@ -297,6 +300,25 @@ namespace Dominio
             }
             return bandera;
         }
+
+
+        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta)
+        {
+            List<Excursion> asist = new List<Excursion>();
+            if (desde < hasta)
+            {
+                foreach (Excursion unaExcursion in excursiones)
+                {
+                    if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
+                    {
+                        asist.Add(unaExcursion);
+                    }
+                }
+            }
+            return asist;
+        }
+
+
         #endregion
         #region Método Cotizacion
         //Mostrar Cotización
@@ -316,6 +338,9 @@ namespace Dominio
             return valido;
         }
         #endregion
+<<<<<<< HEAD
+
+=======
         #region Otros Métodos
         private static bool ControlDosDestinos(List<Destino> aux)
         {
@@ -332,5 +357,6 @@ namespace Dominio
             return bandera;
         } 
         #endregion
+>>>>>>> 271acb2e54478adfbddc55163309bbcab2e47e6a
     }
 }

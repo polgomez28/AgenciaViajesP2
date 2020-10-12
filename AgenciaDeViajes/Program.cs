@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace AgenciaDeViajes
 {
     public class Program
+
     {
-        #region Creación de la empresa
         static Agencia unaAgencia = new Agencia();
-        #endregion
+        //
         static void Main(string[] args)
         {
             int opcion;
@@ -19,19 +19,20 @@ namespace AgenciaDeViajes
             while (!salir)
             {
                 Console.Clear();
-                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
-                Console.WriteLine("                      AGENCIA DE VIAJES                                         " + "\n");
-                Console.WriteLine("                           MENU                                                 " + "\n");
-                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
-                Console.WriteLine("          1- Ingresar un destino                                                " + "\n");
-                Console.WriteLine("          2- Visualizar todos los destinos disponibles                          " + "\n");
-                Console.WriteLine("          3- Cotización del dolar                                               " + "\n");
-                Console.WriteLine("          4- Registrar excursiones (Precargas)                                  " + "\n");
-                Console.WriteLine("          5- Listar todas las excursiones                                       " + "\n");
-                Console.WriteLine("          6- Listar excursiones que vayan a un destino dado entre dos fechas.   " + "\n");
-                Console.WriteLine("          7- Salir                                                              " + "\n");
-                Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
+                Console.WriteLine("----------------------------------------------------------" + "\n");
+                Console.WriteLine("                      AGENCIA DE VIAJES                   " + "\n");
+                Console.WriteLine("                           MENU                           " + "\n");
+                Console.WriteLine("----------------------------------------------------------" + "\n");
+                Console.WriteLine("                 1- Ingresa un destino                    " + "\n");
+                Console.WriteLine("                 2- Listar todos los destinos             " + "\n");
+                Console.WriteLine("                 3- Cotización del dolar                  " + "\n");
+                Console.WriteLine("                 4- Registrar excursiones                 " + "\n");
+                Console.WriteLine("                 5- Listar excursiones                    " + "\n");
+                Console.WriteLine("                 6- Listar excursiones en fecha dada      " + "\n");
+                Console.WriteLine("                 7- Salir                                 " + "\n");
+                Console.WriteLine("----------------------------------------------------------" + "\n");
                 int.TryParse(Console.ReadLine(), out opcion);
+
                 switch (opcion)
                 {
                     case 1:
@@ -46,14 +47,14 @@ namespace AgenciaDeViajes
                         MostrarCotizacion();
                         break;
                     case 4:
-                        Console.WriteLine("Ya se encuentran registradas (Precargas)");
+                        AltaExcursion();
                         break;
                     case 5:
                         ListarExcursiones();
                         Console.ReadKey();
                         break;
                     case 6:
-                        //ListarExcursionesEnFecha();
+                        ListarExcursionesEnFecha();
                         break;
                     case 7:
                         return;
@@ -61,8 +62,100 @@ namespace AgenciaDeViajes
                         break;
                 }
             }
+
+
         }
-        #region Case1
+
+        private static string PedirTexto(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+            string texto = Console.ReadLine();
+            return texto;
+        }
+        //Muestro la lista excursiones
+
+        private static void MostrarListaExcursiones(List<Excursion> asist, string msgError)
+        {
+            if (asist.Count > 0)
+            {
+                foreach (Excursion unaExcursion in asist)
+                {
+                    Console.WriteLine(unaExcursion);
+                }
+            }
+            else
+            {
+                Console.WriteLine(msgError);
+            }
+        }
+        // Muestra en pantalla la lista de destinos si los hubiera
+        private static void MostrarListaDestinos(List<Destino> asist, string msgError)
+        {
+            if (asist.Count > 0)
+            {
+                foreach (Destino unDestino in asist)
+                {
+                    Console.WriteLine(unDestino);
+                }
+            }
+            else
+            {
+                Console.WriteLine(msgError);
+            }
+        }
+        private static int PedirNumero(string mensaje = "Ingrese el numero")
+        {
+            int num;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = int.TryParse(Console.ReadLine(), out num);
+                if (!valido)
+                {
+                    Console.WriteLine("\nSolo se admiten numeros\n");
+                }
+
+            } while (!valido);
+
+            return num;
+        }
+
+        private static DateTime PedirFecha(string mensaje = "Ingres la fecha:")
+        {
+            DateTime fecha;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = DateTime.TryParse(Console.ReadLine(), out fecha);
+                if (!valido)
+                {
+                    Console.WriteLine("No es una fecha válida");
+                }
+
+            } while (!valido);
+            return fecha;
+        }
+
+        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        {
+            decimal num;
+            bool valido = false;
+            do
+            {
+                Console.WriteLine(mensaje);
+                valido = decimal.TryParse(Console.ReadLine(), out num);
+                if (!valido)
+                {
+                    Console.WriteLine("\nSolo se admiten numeros\n");
+                }
+
+            } while (!valido);
+
+            return num;
+        }
+
         private static void IngresaDestino()
         {
             string ciudad, pais;
@@ -86,30 +179,35 @@ namespace AgenciaDeViajes
                 }
             }
         }
-        #endregion
-        #region Case2
+
+        private static void AltaExcursion()
+        {
+            string descripcion;
+            int diasTraslados;
+            int stockLugares;
+            int idExcursion;
+            DateTime fecha;
+            descripcion = PedirTexto("Ingrese la descripcion de la excursion");
+            fecha = PedirFecha("Ingrese la fecha");
+            diasTraslados = PedirNumero("Indique los días");
+            stockLugares = PedirNumero("Ingrese los lugares que quedan");
+            idExcursion = PedirNumero("Ingresar numero de id");
+
+        }
+
+        // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
+        private static void ListarExcursiones()
+        {
+            List<Excursion> asist = unaAgencia.Excursiones(); // obtiene una lista de excursiones generada desde el método en Agencia
+            MostrarListaExcursiones(asist, "No hay excursiones.");
+        }
         private static void ListarDestinos()
         {
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
-        // Muestra en pantalla la lista de destinos si los hubiera
-        private static void MostrarListaDestinos(List<Destino> asist, string msgError)
-        {
-            if (asist.Count > 0)
-            {
-                foreach (Destino unDestino in asist)
-                {
-                    Console.WriteLine(unDestino);
-                }
-            }
-            else
-            {
-                Console.WriteLine(msgError);
-            }
-        }
-        #endregion
-        #region Case3
+
+
         private static void MostrarCotizacion()
         {
             int opcion;
@@ -136,7 +234,7 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
-        // Se modifica la cotización
+
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
@@ -165,71 +263,15 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
-        #endregion
-        #region Case5
-        // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
-        private static void ListarExcursiones()
-        {
-            List<Excursion> asist = unaAgencia.Excursiones(); // obtiene una lista de excursiones generada desde el método en Agencia
-            MostrarListaExcursiones(asist, "No hay excursiones.");
-        }
-        //Muestro la lista excursiones
-        private static void MostrarListaExcursiones(List<Excursion> asist, string msgError)
-        {
-            if (asist.Count > 0)
-            {
-                foreach (Excursion unExcursion in asist)
-                {
-                    Console.WriteLine(unExcursion);
-                }
-            }
-            else
-            {
-                Console.WriteLine(msgError);
-            }
-        }
-        #endregion
-        #region Otros Métodos
-        private static string PedirTexto(string mensaje)
-        {
-            Console.WriteLine(mensaje);
-            string texto = Console.ReadLine();
-            return texto;
-        }
-        private static int PedirNumero(string mensaje = "Ingrese el numero")
-        {
-            int num;
-            bool valido = false;
-            do
-            {
-                Console.WriteLine(mensaje);
-                valido = int.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
 
-            } while (!valido);
 
-            return num;
-        }
-        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        private static void ListarExcursionesEnFecha()
         {
-            decimal num;
-            bool valido = false;
-            do
-            {
-                Console.WriteLine(mensaje);
-                valido = decimal.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
 
-            } while (!valido);
-
-            return num;
+            DateTime desde = PedirFecha("Ingrese Fecha de ida dd/mm/aaaa");
+            DateTime hasta = PedirFecha("Ingrese Fecha de vuelta dd/mm/aaaa");
+            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta);
+            MostrarListaExcursiones(asist, "No hay excursiones");
         }
-        #endregion
     }
 }

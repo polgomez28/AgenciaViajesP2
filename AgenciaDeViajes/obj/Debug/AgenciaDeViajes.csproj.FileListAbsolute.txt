@@ -18,3 +18,11 @@ C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\Agen
 C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CopyComplete
 C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.exe
 C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csprojResolveAssemblyReference.cache
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.exe
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe.config
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.pdb
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\Dominio.dll
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\Dominio.pdb
