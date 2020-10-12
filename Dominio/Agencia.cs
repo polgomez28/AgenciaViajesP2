@@ -338,9 +338,6 @@ namespace Dominio
             return valido;
         }
         #endregion
-<<<<<<< HEAD
-
-=======
         #region Otros Métodos
         private static bool ControlDosDestinos(List<Destino> aux)
         {
@@ -357,6 +354,5 @@ namespace Dominio
             return bandera;
         } 
         #endregion
->>>>>>> 271acb2e54478adfbddc55163309bbcab2e47e6a
     }
 }
