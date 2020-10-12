@@ -67,7 +67,7 @@ namespace Dominio
             return respuesta;
         }
         // Buscar destino, teniendo ciudad-pais.
-        private bool ExisteDestino(string ciudad, string pais)
+        public bool ExisteDestino(string ciudad, string pais)
         {
             int i = 0;
             bool encontre = false;

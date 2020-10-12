@@ -73,7 +73,7 @@ namespace Dominio
             DateTime fecha;
 
             fecha = new DateTime(2020, 08, 10);
-            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
 
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
