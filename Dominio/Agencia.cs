@@ -303,7 +303,7 @@ namespace Dominio
         public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
         {
             List<Excursion> asist = new List<Excursion>();
-            
+            int id = 0;
             if (desde < hasta)
             {
                 foreach (Excursion unaExcursion in excursiones)
@@ -313,8 +313,9 @@ namespace Dominio
                         
                         foreach (Destino unDestino in unaExcursion.Destinos)
                         {
-                            if (unDestino.Pais == pais)
+                            if (unDestino.Pais == pais && id != unaExcursion.Id)
                             {
+                                id = unaExcursion.Id;
                                 asist.Add(unaExcursion);
                             }
                         }
