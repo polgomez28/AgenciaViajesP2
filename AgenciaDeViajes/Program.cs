@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace AgenciaDeViajes
 {
     public class Program
-
     {
         #region Creación de la empresa
         static Agencia unaAgencia = new Agencia();
@@ -33,7 +32,6 @@ namespace AgenciaDeViajes
                 Console.WriteLine("          7- Salir                                                              " + "\n");
                 Console.WriteLine("--------------------------------------------------------------------------------" + "\n");
                 int.TryParse(Console.ReadLine(), out opcion);
-
                 switch (opcion)
                 {
                     case 1:
@@ -63,8 +61,6 @@ namespace AgenciaDeViajes
                         break;
                 }
             }
-
-
         }
         #region Case1
         private static void IngresaDestino()
