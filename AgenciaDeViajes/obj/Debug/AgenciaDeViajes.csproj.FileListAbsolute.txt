@@ -8,3 +8,13 @@ D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\Agenci
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CopyComplete
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.exe
 D:\ORT\Programacion2\ObligatorioAgencia\AgenciaDeViajesP2\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe.config
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.exe
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\AgenciaDeViajes.pdb
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\Dominio.dll
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\bin\Debug\Dominio.pdb
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csprojAssemblyReference.cache
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CoreCompileInputs.cache
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.csproj.CopyComplete
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.exe
+C:\Users\Zven\Desktop\Obligatorio\AgenciaViajesP2\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb

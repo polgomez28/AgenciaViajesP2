@@ -8,7 +8,7 @@ La estadía en cada destino por persona. (costo es la cantidad de días por el c
 PRONTO
 
 3. Modificar la cotización del dólar.
-REVISAR - Sale al menú principal cuando se ingresa una letra o un valor negativo
+Pronto
 
 4. Registrar excursiones (precarga).
 A cada excursión se le agregarán al menos 2 destinos.
