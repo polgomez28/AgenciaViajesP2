@@ -16,5 +16,13 @@ namespace Dominio
         {
             this.compania = compania;
         }
+        // Método ToString
+        public override string ToString()
+        {
+            string respuesta = "";
+            respuesta = "Excursión internacional" + "\n";
+            respuesta = "Compañia Aerea: " + compania + "\n";
+            return base.ToString() + respuesta;
+        }
     }
 }

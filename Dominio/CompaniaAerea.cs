@@ -29,5 +29,11 @@ namespace Dominio
             this.id = ++ultId;
             this.pais = pais;
         }
+        public override string ToString()
+        {
+            string respuesta = "";
+            respuesta += pais + "\n";
+            return respuesta;
+        }
     }
 }

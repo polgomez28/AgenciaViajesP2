@@ -15,5 +15,21 @@ namespace Dominio
         {
             this.esInteres = esInteres;
         }
+
+        // Método ToString
+        public override string ToString()
+        {
+            string respuesta = "";
+            respuesta = "Excursión Nacional" + "\n";
+            if (esInteres)
+            {
+                respuesta = "Es de interes por el Ministerio de Turismo" + "\n";
+            }
+            else
+            {
+                respuesta = "No es de interes por el Ministerio de Turismo" + "\n";
+            }
+            return base.ToString() + respuesta;
+        }
     }
 }
