@@ -57,6 +57,7 @@ namespace Dominio
             AgregarDestinos("Venecia", "Italia", 150, 5);
             // Destinos Nacionales
             AgregarDestinos("Montevideo", "Uruguay", 150, 5);
+            AgregarDestinos("Montevideo", "Uruguay", 150, 5);// prueba de destino ya agregado
             AgregarDestinos("Salto", "Uruguay", 150, 5);
             AgregarDestinos("Paysandu", "Uruguay", 150, 5);
             AgregarDestinos("Artigas", "Uruguay", 150, 5);
@@ -72,7 +73,7 @@ namespace Dominio
             DateTime fecha;
 
             fecha = new DateTime(2020, 08, 10);
-            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "San José", "Uruguay"));
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
 
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
@@ -247,7 +248,10 @@ namespace Dominio
             List<Excursion> asist = new List<Excursion>();
             foreach (Excursion unaExcursion in excursiones)
             {
-                asist.Add(unaExcursion);
+                if (unaExcursion.Destinos != null && ControlDosDestinos(unaExcursion.Destinos)) // Para lista solo las excursiones que tengan Destinos && que tengan dos destinos
+                {
+                    asist.Add(unaExcursion);
+                }
             }
             return asist;
         }
@@ -266,13 +270,14 @@ namespace Dominio
             List<Destino> aux = new List<Destino>();
             foreach (Destino unDestino in destinos)
             {
-                if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2)
+                if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2 || ciudad != ciudad2 && pais != pais2)
                 {
                     aux.Add(unDestino);
                 }
             }
             // Dejo en null la lista si los destinos ya estan asignados en alguna otra excursion.
-            if (ControlDestinosEnExcursiones(aux))
+            // ControlDosDetinos verifica que sean 2 destinos, en el caso que sean más de dos deja en null la lista
+            if (ControlDestinosEnExcursiones(aux) && !ControlDosDestinos(aux))
             {
                 aux = null;
             }
@@ -310,6 +315,22 @@ namespace Dominio
             }
             return valido;
         }
+        #endregion
+        #region Otros Métodos
+        private static bool ControlDosDestinos(List<Destino> aux)
+        {
+            bool bandera = false;
+            int contador = 0;
+            foreach (Destino unDestino in aux)
+            {
+                contador++;
+            }
+            if (contador == 2)
+            {
+                bandera = true;
+            }
+            return bandera;
+        } 
         #endregion
     }
 }
