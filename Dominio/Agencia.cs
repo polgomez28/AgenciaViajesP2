@@ -302,16 +302,23 @@ namespace Dominio
         }
 
 
-        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta)
+        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
         {
             List<Excursion> asist = new List<Excursion>();
+            
             if (desde < hasta)
             {
                 foreach (Excursion unaExcursion in excursiones)
                 {
                     if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
                     {
-                        asist.Add(unaExcursion);
+                        foreach (Destino unDestino in unaExcursion.Destinos)
+                        {
+                            if (unDestino.Pais == pais)
+                            {
+                                asist.Add(unaExcursion);
+                            }
+                        }
                     }
                 }
             }

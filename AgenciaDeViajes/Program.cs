@@ -55,6 +55,7 @@ namespace AgenciaDeViajes
                         break;
                     case 6:
                         ListarExcursionesEnFecha();
+                        Console.ReadKey();
                         break;
                     case 7:
                         return;
@@ -267,10 +268,10 @@ namespace AgenciaDeViajes
 
         private static void ListarExcursionesEnFecha()
         {
-
             DateTime desde = PedirFecha("Ingrese Fecha de ida dd/mm/aaaa");
             DateTime hasta = PedirFecha("Ingrese Fecha de vuelta dd/mm/aaaa");
-            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta);
+            string pais = PedirTexto("Ingrese destino: ");
+            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta, pais);
             MostrarListaExcursiones(asist, "No hay excursiones");
         }
     }
