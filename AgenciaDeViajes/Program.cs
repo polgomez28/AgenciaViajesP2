@@ -47,7 +47,8 @@ namespace AgenciaDeViajes
                         MostrarCotizacion();
                         break;
                     case 4:
-                        AltaExcursion();
+                        Console.WriteLine("Excursiones ya ingresadas (Precargas)");
+                        Console.ReadKey();
                         break;
                     case 5:
                         ListarExcursiones();
@@ -180,22 +181,6 @@ namespace AgenciaDeViajes
                 }
             }
         }
-
-        private static void AltaExcursion()
-        {
-            string descripcion;
-            int diasTraslados;
-            int stockLugares;
-            int idExcursion;
-            DateTime fecha;
-            descripcion = PedirTexto("Ingrese la descripcion de la excursion");
-            fecha = PedirFecha("Ingrese la fecha");
-            diasTraslados = PedirNumero("Indique los días");
-            stockLugares = PedirNumero("Ingrese los lugares que quedan");
-            idExcursion = PedirNumero("Ingresar numero de id");
-
-        }
-
         // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
         private static void ListarExcursiones()
         {
@@ -264,8 +249,6 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
-
-
         private static void ListarExcursionesEnFecha()
         {
             DateTime desde = PedirFecha("Ingrese Fecha de ida dd/mm/aaaa");

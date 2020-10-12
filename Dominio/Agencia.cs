@@ -300,8 +300,6 @@ namespace Dominio
             }
             return bandera;
         }
-
-
         public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
         {
             List<Excursion> asist = new List<Excursion>();
@@ -312,6 +310,7 @@ namespace Dominio
                 {
                     if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
                     {
+                        
                         foreach (Destino unDestino in unaExcursion.Destinos)
                         {
                             if (unDestino.Pais == pais)
