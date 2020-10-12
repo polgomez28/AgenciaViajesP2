@@ -162,8 +162,7 @@ namespace Dominio
             }
             return exito;
         }
-        #region
-        #region Métodos de busqueda
+        
         //Buscar compania a partir del id
         private bool BuscarCompania(int idCompania)
         {
@@ -307,6 +306,22 @@ namespace Dominio
                 }
             }
             return bandera;
+        }
+
+        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta)
+        {
+            List<Excursion> asist = new List<Excursion>();
+            if (desde < hasta)
+            {
+                foreach (Excursion unaExcursion in excursiones)
+                {
+                    if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
+                    {
+                        asist.Add(unaExcursion);
+                    }
+                }
+            }
+            return asist;
         }
 
     }
