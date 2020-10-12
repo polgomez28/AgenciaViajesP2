@@ -8,16 +8,13 @@ namespace Dominio
 {
     public class Agencia
     {
-        // Atributos
+        #region Atributos
         private List<Excursion> excursiones = new List<Excursion>();
         private List<Destino> destinos = new List<Destino>();
         private List<CompaniaAerea> companiasAereas = new List<CompaniaAerea>();
         private static decimal dolar = 42;
-        // Propiedades
-        //public List<Excursion> Excursiones
-        //{
-        //  get { return excursiones; }
-        //}
+        #endregion
+        #region Propiedades
         public List<Destino> Destino
         {
             get { return destinos; }
@@ -30,19 +27,14 @@ namespace Dominio
         {
             get { return dolar; }
         }
-        //Precargas
+        #endregion
+        #region Precargas
         public Agencia()
         {
             PrecargaCompaniaAerea();
             PrecargasDestinos();
             PrecargarExcursiones();
-            //AsignarCostoPorPersona();
         }
-        // Precarga Comanias aereas
-
-
-        // Precarga Companias aereas
-
         private void PrecargaCompaniaAerea()
         {
             AltaCompaniaAerea("Alemania", 1);
@@ -51,7 +43,6 @@ namespace Dominio
             AltaCompaniaAerea("Brasil", 4);
             AltaCompaniaAerea("Brasil", 4);
         }
-
         private void PrecargasDestinos()
         {
             // Destinos internacionales
@@ -76,7 +67,6 @@ namespace Dominio
             AgregarDestinos("Fray Bentos", "Uruguay", 150, 5);
         }
         // Precarga excursiones
-
         private void PrecargarExcursiones()
         {
             DateTime fecha;
@@ -110,6 +100,8 @@ namespace Dominio
             fecha = new DateTime(2020, 06, 01);
             AltaExcursionesInternacionales("Roma", fecha, 4, 25, 1200, 4, DevolverDestino("Roma", "Italia", "Atenas", "Italia"));
         }
+        #endregion
+        #region Métodos de Alta
         // Alta compania aerea
         private bool AltaCompaniaAerea(string pais, int idCompania)
         {
@@ -127,38 +119,6 @@ namespace Dominio
             bool exito = false;
 
             return exito;
-        }
-        //Buscar compania a partir del id
-        private bool BuscarCompania(int idCompania)
-        {
-            bool encontre = false;
-            int i = 0;
-            while (!encontre && i < companiasAereas.Count)
-            {
-                if (companiasAereas[i].Id == idCompania)
-                {
-                    encontre = true;
-                }
-                i++;
-            }
-            return encontre;
-        }
-        // Obtener compania a partir del id
-        private CompaniaAerea ObtenerCompania(int idCompania)
-        {
-            bool encontre = false;
-            int i = 0;
-            CompaniaAerea unCompania = null;
-            while (!encontre && i < companiasAereas.Count)
-            {
-                if (companiasAereas[i].Id == idCompania)
-                {
-                    //encontre = true;
-                    unCompania = companiasAereas[i];
-                }
-                i++;
-            }
-            return unCompania;
         }
         //Alta de excursiones nacionales
         public bool AltaExcursionNacional(string descripcion, DateTime fecha, int diasTraslados, int stockLugares, int idExcursion, bool esInteres, List<Destino> destinos)
@@ -188,6 +148,37 @@ namespace Dominio
             }
             return exito;
         }
+        //Ultimo Método actualizado de Agregar Destino
+        public bool AgregarDestinos(string ciudad, string pais, decimal costo, decimal cantidadDias)
+        {
+            bool exito = false;
+            if (BuscarDestino(ciudad) == null)
+            {
+                Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
+                unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
+                unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
+                destinos.Add(unDestino);
+                exito = true;
+            }
+            return exito;
+        }
+        #region
+        #region Métodos de busqueda
+        //Buscar compania a partir del id
+        private bool BuscarCompania(int idCompania)
+        {
+            bool encontre = false;
+            int i = 0;
+            while (!encontre && i < companiasAereas.Count)
+            {
+                if (companiasAereas[i].Id == idCompania)
+                {
+                    encontre = true;
+                }
+                i++;
+            }
+            return encontre;
+        }
         // Buscar excursión existente
         public bool BuscarExcursion(int id)
         {
@@ -203,7 +194,53 @@ namespace Dominio
             }
             return encontre;
         }
-        
+        // Obtener compania a partir del id
+        private CompaniaAerea ObtenerCompania(int idCompania)
+        {
+            bool encontre = false;
+            int i = 0;
+            CompaniaAerea unCompania = null;
+            while (!encontre && i < companiasAereas.Count)
+            {
+                if (companiasAereas[i].Id == idCompania)
+                {
+                    //encontre = true;
+                    unCompania = companiasAereas[i];
+                }
+                i++;
+            }
+            return unCompania;
+        }
+        //Buscar destino
+        public Destino BuscarDestino(string ciudad, string pais, decimal costo, decimal cantidadDias, List<Destino> auxDestino)
+        {
+            int i = 0;
+            Destino destino = null;
+            while (destino == null && i < auxDestino.Count)
+            {
+                if (auxDestino[i].Ciudad == ciudad)
+                {
+                    destino = destinos[i];
+                }
+                i++;
+            }
+            return destino;
+        }
+        public Destino BuscarDestino(string ciudad)
+        {
+            int i = 0;
+            Destino destino = null;
+            while (destino == null && i < destinos.Count)
+            {
+                if (destinos[i].Ciudad == ciudad)
+                {
+                    destino = destinos[i];
+                }
+                i++;
+            }
+            return destino;
+        }
+        #endregion
         public List<Excursion> Excursiones()
         {
             List<Excursion> asist = new List<Excursion>();
@@ -222,7 +259,6 @@ namespace Dominio
             }
             return asist;
         }
-
         //Mostrar Cotización
         public decimal MostrarDolar()
         {
@@ -239,51 +275,7 @@ namespace Dominio
             }
             return valido;
         }
-
-        //Buscar destino
-        public Destino BuscarDestino(string ciudad, string pais, decimal costo, decimal cantidadDias, List<Destino> auxDestino)
-        {
-            int i = 0;
-            Destino destino = null;
-            while (destino == null && i < auxDestino.Count)
-            {
-                if (auxDestino[i].Ciudad == ciudad)
-                {
-                    destino = destinos[i];
-                }
-                i++;
-            }
-            return destino;
-        }
-
-        public Destino BuscarDestino(string ciudad)
-        {
-            int i = 0;
-            Destino destino = null;
-            while (destino == null && i < destinos.Count)
-            {
-                if (destinos[i].Ciudad == ciudad)
-                {
-                    destino = destinos[i];
-                }
-                i++;
-            }
-            return destino;
-        }
-        //Ultimo Método actualizado de Agregar Destino
-        public bool AgregarDestinos(string ciudad, string pais, decimal costo, decimal cantidadDias)
-        {
-            bool exito = false;
-            if (BuscarDestino(ciudad) == null)
-            {
-                Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
-                unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
-                unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
-                destinos.Add(unDestino);
-                exito = true;
-            }
-            return exito;
-        }
+        
         // Genero la lista de destinos para ser asignadas a las excursiones
         public List<Destino> DevolverDestino(string ciudad, string pais, string ciudad2, string pais2)
         {

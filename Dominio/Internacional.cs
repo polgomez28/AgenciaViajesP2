@@ -16,7 +16,7 @@ namespace Dominio
         {
             this.compania = compania;
         }
-        // Método ToString
+        #region Métodos
         public override string ToString()
         {
             string respuesta = "";
@@ -24,5 +24,6 @@ namespace Dominio
             respuesta = "Compañia Aerea: " + compania + "\n";
             return base.ToString() + respuesta;
         }
+        #endregion
     }
 }

@@ -8,15 +8,16 @@ namespace Dominio
 {
     public class Nacional : Excursion
     {
-        // Atributos
+        #region Atributos
         private bool esInteres = false;
-
+        #endregion
+        #region Constructor
         public Nacional(string descipcion, DateTime fecha, int diasTraslados, int stockLugares, bool esInteres, List<Destino> destinos) : base(descipcion, fecha, diasTraslados, stockLugares, destinos)
         {
             this.esInteres = esInteres;
         }
-
-        // Método ToString
+        #endregion
+        #region Métodos
         public override string ToString()
         {
             string respuesta = "";
@@ -31,5 +32,6 @@ namespace Dominio
             }
             return base.ToString() + respuesta;
         }
+        #endregion
     }
 }

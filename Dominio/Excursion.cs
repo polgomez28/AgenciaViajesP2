@@ -8,7 +8,7 @@ namespace Dominio
 {
     public abstract class Excursion
     {
-        //Atributos
+        #region Atributos
         private int id = 0;
         private static int ultid = 1000;
         private string descripcion = "";
@@ -16,8 +16,8 @@ namespace Dominio
         private int diasTraslados = 0;
         private int stockLugares = 0;
         private List<Destino> destinos = new List<Destino>();
-
-        // Constructor
+        #endregion
+        #region Constructor
         public Excursion(string descripcion, DateTime fecha, int diasTraslados, int stockLugares, List<Destino> destinos)
         {
             this.id = GenerarId(id);
@@ -27,6 +27,8 @@ namespace Dominio
             this.stockLugares = stockLugares;
             this.destinos = destinos;
         }
+        #endregion
+        #region Propiedades
         public List<Destino> Destinos
         {
             get { return destinos; }
@@ -35,6 +37,9 @@ namespace Dominio
         {
             get { return id; }
         }
+        #endregion
+        #region Métodos
+        // Método que genera id sumando de a 100.
         public int GenerarId(int id)
         {
             id = ultid;
@@ -61,6 +66,7 @@ namespace Dominio
             respuesta += "-----------------------------------" + "\n";
             return respuesta;
         }
+        // Buscar destino, teniendo ciudad-pais.
         private bool ExisteDestino(string ciudad, string pais)
         {
             int i = 0;
@@ -75,6 +81,7 @@ namespace Dominio
             }
             return encontre;
         }
+        #endregion
     }
 
 }

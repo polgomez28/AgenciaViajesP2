@@ -8,15 +8,15 @@ namespace Dominio
 {
     public class Destino
     {
-        // Atributos
+        #region Atributos
         private string ciudad = "";
         private string pais = "";
         private decimal costo = 0;
         private decimal cantidadDias = 0;
         private decimal costoEstadia = 0;
         private decimal costoEstadiaPesos = 0;
-        
-        // Constructor
+        #endregion
+        #region Constructor
         public Destino(string ciudad, string pais, decimal costo, decimal cantidadDias)
         {
             this.ciudad = ciudad;
@@ -24,7 +24,8 @@ namespace Dominio
             this.costo = costo;
             this.cantidadDias = cantidadDias;
         }
-        // Propiedades
+        #endregion
+        #region Propiedades
         public decimal Costo
         {
             get { return costo; }
@@ -47,13 +48,12 @@ namespace Dominio
         {
             get { return ciudad; }
         }
-
         public string Pais
         {
             get { return pais; }
         }
-
-        // Método ToString
+        #endregion
+        #region Métodos
         public override string ToString()
         {
             string respuesta = "";
@@ -87,8 +87,7 @@ namespace Dominio
             string nombre = "";
             return nombre.Length >= 2;
         }
-
-
+        #endregion
     }
 
 }
