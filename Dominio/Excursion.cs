@@ -74,8 +74,6 @@ namespace Dominio
                 }
                 respuesta += ("El Costo total de la excursion en Dolares es de: U$S " + totalUsd + "\n");
                 respuesta += ("El Costo total de la excursion en Pesos es de: $ " + totalPeso + "\n");
-                respuesta += "--------------------------------------------------------------------------------" + "\n";
-
             }
             return respuesta;
         }

@@ -140,7 +140,7 @@ namespace AgenciaDeViajes
             return fecha;
         }
 
-        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo y solo se admiten números, ingrese nuevamente la cotizacion: ")
         {
             decimal num;
             bool valido = false;
@@ -148,11 +148,6 @@ namespace AgenciaDeViajes
             {
                 Console.WriteLine(mensaje);
                 valido = decimal.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
-
             } while (!valido);
 
             return num;
@@ -179,6 +174,10 @@ namespace AgenciaDeViajes
                 {
                     Console.WriteLine("Error, algo salió mal. Verifique que lo ingresado este correcto.");
                 }
+            }
+            else
+            {
+                Console.WriteLine("- Ciudad y país deben tener al menos 3 caracteres" +"\n"+ "- Valores númericos no pueden ser negativos");
             }
         }
         // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
@@ -220,7 +219,6 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
-
         private static void ModificarCotizacion()
         {
             decimal cotizacion;

@@ -78,6 +78,9 @@ namespace Dominio
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
 
+            fecha = new DateTime(2020, 01, 10);
+            AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
+
             fecha = new DateTime(2020, 02, 10);
             AltaExcursionNacional("Atlantida", fecha, 5, 45, 1400, true, DevolverDestino("Rivera", "Uruguay", "Maldonado", "Uruguay"));
 
@@ -251,7 +254,7 @@ namespace Dominio
             List<Excursion> asist = new List<Excursion>();
             foreach (Excursion unaExcursion in excursiones)
             {
-                if (unaExcursion.Destinos != null && ControlDosDestinos(unaExcursion.Destinos)) // Para lista solo las excursiones que tengan Destinos && que tengan dos destinos
+                if (unaExcursion.Destinos != null) // Para lista solo las excursiones que tengan Destinos && que tengan dos destinos (&& ControlDosDestinos(unaExcursion.Destinos))
                 {
                     asist.Add(unaExcursion);
                 }
