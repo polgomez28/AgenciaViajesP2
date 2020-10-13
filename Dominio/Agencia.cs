@@ -97,7 +97,7 @@ namespace Dominio
             AltaExcursionesInternacionales("OctoberFest", fecha, 4, 25, 1800, 4, DevolverDestino("Barcelona", "España", "Madrid", "España"));
 
             fecha = new DateTime(2020, 01, 01);
-            AltaExcursionesInternacionales("San Fermin", fecha, 4, 15, 1500, 4, DevolverDestino("Granada", "España", "Mallorca", "España"));
+            AltaExcursionesInternacionales("San Fermin", fecha, 4, 15, 1500, 4, DevolverDestino("Granada", "España", "Mallorca", "España"));// No debe aparecer porq Cerro Chato tiene el mismo código
 
             fecha = new DateTime(2020, 04, 01);
             AltaExcursionesInternacionales("Madrid", fecha, 4, 25, 1900, 4, DevolverDestino("Paris", "Francia", "Lyon", "Francia"));
@@ -324,7 +324,7 @@ namespace Dominio
                         
                         foreach (Destino unDestino in unaExcursion.Destinos)
                         {
-                            if (unDestino.Pais == pais && id != unaExcursion.Id)
+                            if (unDestino.Pais.ToLower().ToUpper() == pais && id != unaExcursion.Id)
                             {
                                 id = unaExcursion.Id;
                                 asist.Add(unaExcursion);

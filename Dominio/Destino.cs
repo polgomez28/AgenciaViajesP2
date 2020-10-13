@@ -88,5 +88,6 @@ namespace Dominio
             return nombre.Length >= 2;
         }
         #endregion
+
     }
 }

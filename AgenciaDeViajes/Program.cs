@@ -251,8 +251,6 @@ namespace AgenciaDeViajes
 
             DateTime desde = PedirFecha("Ingrese fecha");
             DateTime hasta = PedirFecha("Ingrese fecha");
-
-            
             string pais = PedirTexto("Ingrese destino: ");
             List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta, pais);
 
