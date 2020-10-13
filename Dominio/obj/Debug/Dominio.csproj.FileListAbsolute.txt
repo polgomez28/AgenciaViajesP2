@@ -14,3 +14,4 @@ C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\Dominio\bin\Debug\Dominio.dll
 C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\Dominio\bin\Debug\Dominio.pdb
 C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.dll
 C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.pdb
+C:\Users\crlar\OneDrive\Escritorio\AgenciaViajesP2\Dominio\obj\Debug\Dominio.csprojResolveAssemblyReference.cache

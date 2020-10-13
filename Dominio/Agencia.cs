@@ -73,13 +73,13 @@ namespace Dominio
             DateTime fecha;
 
             fecha = new DateTime(2020, 08, 10);
-            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1300, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
 
             fecha = new DateTime(2020, 01, 10);
-            AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
+            AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1700, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
 
             fecha = new DateTime(2020, 02, 10);
-            AltaExcursionNacional("Atlantida", fecha, 5, 45, 1400, true, DevolverDestino("Rivera", "Uruguay", "Maldonado", "Uruguay"));
+            AltaExcursionNacional("Atlantida", fecha, 5, 45, 2000, true, DevolverDestino("Rivera", "Uruguay", "Maldonado", "Uruguay"));
 
             fecha = new DateTime(2020, 03, 10);
             AltaExcursionNacional("Cerro chato", fecha, 5, 45, 1500, true, DevolverDestino("Rocha", "Uruguay", "Fray Bentos", "Uruguay"));
@@ -95,11 +95,11 @@ namespace Dominio
             fecha = new DateTime(2020, 04, 01);
             AltaExcursionesInternacionales("Madrid", fecha, 4, 25, 1900, 4, DevolverDestino("Paris", "Francia", "Lyon", "Francia"));
 
-            fecha = new DateTime(2020, 06, 01);
-            AltaExcursionesInternacionales("Roma", fecha, 4, 25, 1200, 4, DevolverDestino("Roma", "Italia", "Atenas", "Italia"));
+            fecha = new DateTime(2020, 08, 01);
+            AltaExcursionesInternacionales("Todo Italia", fecha, 4, 25, 1580, 4, DevolverDestino("Roma", "Italia", "Venecia", "Italia"));
 
-            fecha = new DateTime(2020, 06, 01);
-            AltaExcursionesInternacionales("Roma", fecha, 4, 25, 1200, 4, DevolverDestino("Roma", "Italia", "Atenas", "Italia"));
+            fecha = new DateTime(2020, 08, 01);
+            AltaExcursionesInternacionales("Todo Italia", fecha, 4, 25, 1580, 4, DevolverDestino("Roma", "Italia", "Venecia", "Italia"));
         }
         #endregion
         #region Métodos de Alta
@@ -142,9 +142,11 @@ namespace Dominio
                 CompaniaAerea unCompania = ObtenerCompania(idCompania);
                 if (unCompania != null && destinos != null)
                 {
+             
                     Internacional unInter = new Internacional(descripcion, fecha, diasTraslados, stockLugares, unCompania, destinos);
                     excursiones.Add(unInter);
                     exito = true;
+                         
                 }
             }
             return exito;
@@ -198,6 +200,8 @@ namespace Dominio
             }
             return encontre;
         }
+
+            
         // Obtener compania a partir del id
         private CompaniaAerea ObtenerCompania(int idCompania)
         {
@@ -338,9 +342,7 @@ namespace Dominio
             return valido;
         }
         #endregion
-<<<<<<< HEAD
 
-=======
         #region Otros Métodos
         private static bool ControlDosDestinos(List<Destino> aux)
         {
@@ -357,6 +359,6 @@ namespace Dominio
             return bandera;
         } 
         #endregion
->>>>>>> 271acb2e54478adfbddc55163309bbcab2e47e6a
+
     }
 }

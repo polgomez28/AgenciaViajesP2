@@ -56,12 +56,13 @@ namespace Dominio
         public override string ToString()
         {
             string respuesta = "";
+            respuesta += "------EXCURSIONES------ " + "\n" + "\n";
             respuesta += "Id: " + id + "\n";
             respuesta += "Descripcion: " + descripcion + "\n";
             respuesta += "Fecha: " + fecha.ToShortDateString() + "\n";
             respuesta += "Días traslados: " + diasTraslados + "\n";
-            respuesta += "Stock: " + stockLugares + "\n";
-            respuesta += "DESTINOS " + "\n";
+            respuesta += "Stock: " + stockLugares + "\n" + "\n";
+            respuesta += "-------DESTINOS-------- " + "\n" + "\n";
             if (destinos != null)
             {
                 for (int i = 0; i < destinos.Count; i++)
