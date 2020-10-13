@@ -47,7 +47,8 @@ namespace AgenciaDeViajes
                         MostrarCotizacion();
                         break;
                     case 4:
-                        AltaExcursion();
+                        Console.WriteLine("Excursiones ya ingresadas (Precargas)");
+                        Console.ReadKey();
                         break;
                     case 5:
                         ListarExcursiones();
@@ -139,7 +140,7 @@ namespace AgenciaDeViajes
             return fecha;
         }
 
-        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo, ingrese nuevamente la cotizacion: ")
+        private static decimal PedirDecimal(string mensaje = "El valor debe ser positivo y solo se admiten números, ingrese nuevamente la cotizacion: ")
         {
             decimal num;
             bool valido = false;
@@ -147,11 +148,6 @@ namespace AgenciaDeViajes
             {
                 Console.WriteLine(mensaje);
                 valido = decimal.TryParse(Console.ReadLine(), out num);
-                if (!valido)
-                {
-                    Console.WriteLine("\nSolo se admiten numeros\n");
-                }
-
             } while (!valido);
 
             return num;
@@ -179,23 +175,11 @@ namespace AgenciaDeViajes
                     Console.WriteLine("Error, algo salió mal. Verifique que lo ingresado este correcto.");
                 }
             }
+            else
+            {
+                Console.WriteLine("- Ciudad y país deben tener al menos 3 caracteres" +"\n"+ "- Valores númericos no pueden ser negativos");
+            }
         }
-
-        private static void AltaExcursion()
-        {
-            string descripcion;
-            int diasTraslados;
-            int stockLugares;
-            int idExcursion;
-            DateTime fecha;
-            descripcion = PedirTexto("Ingrese la descripcion de la excursion");
-            fecha = PedirFecha("Ingrese la fecha");
-            diasTraslados = PedirNumero("Indique los días");
-            stockLugares = PedirNumero("Ingrese los lugares que quedan");
-            idExcursion = PedirNumero("Ingresar numero de id");
-
-        }
-
         // Creo una lista auxiliar de excursiones, la cargo con la lista de excursiones (agencia) y la mando al método MostrarLista
         private static void ListarExcursiones()
         {
@@ -207,8 +191,6 @@ namespace AgenciaDeViajes
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
-
-
         private static void MostrarCotizacion()
         {
             int opcion;
@@ -235,7 +217,6 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
-
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
@@ -264,14 +245,17 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
-
-
         private static void ListarExcursionesEnFecha()
         {
 
+
             DateTime desde = PedirFecha("Ingrese fecha");
             DateTime hasta = PedirFecha("Ingrese fecha");
-            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta);
+
+            
+            string pais = PedirTexto("Ingrese destino: ");
+            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta, pais);
+
             MostrarListaExcursiones(asist, "No hay excursiones");
         }
 

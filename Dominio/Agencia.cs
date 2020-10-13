@@ -73,7 +73,14 @@ namespace Dominio
             DateTime fecha;
 
             fecha = new DateTime(2020, 08, 10);
+
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1300, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
+
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
+
+            fecha = new DateTime(2020, 01, 10);
+            AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
+
 
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1700, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
@@ -255,7 +262,7 @@ namespace Dominio
             List<Excursion> asist = new List<Excursion>();
             foreach (Excursion unaExcursion in excursiones)
             {
-                if (unaExcursion.Destinos != null && ControlDosDestinos(unaExcursion.Destinos)) // Para lista solo las excursiones que tengan Destinos && que tengan dos destinos
+                if (unaExcursion.Destinos != null) // Para lista solo las excursiones que tengan Destinos && que tengan dos destinos (&& ControlDosDestinos(unaExcursion.Destinos))
                 {
                     asist.Add(unaExcursion);
                 }
@@ -304,25 +311,30 @@ namespace Dominio
             }
             return bandera;
         }
-
-
-        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta)
+        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
         {
             List<Excursion> asist = new List<Excursion>();
+            int id = 0;
             if (desde < hasta)
             {
                 foreach (Excursion unaExcursion in excursiones)
                 {
                     if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
                     {
-                        asist.Add(unaExcursion);
+                        
+                        foreach (Destino unDestino in unaExcursion.Destinos)
+                        {
+                            if (unDestino.Pais == pais && id != unaExcursion.Id)
+                            {
+                                id = unaExcursion.Id;
+                                asist.Add(unaExcursion);
+                            }
+                        }
                     }
                 }
             }
             return asist;
         }
-
-
         #endregion
         #region Método Cotizacion
         //Mostrar Cotización
@@ -342,6 +354,9 @@ namespace Dominio
             return valido;
         }
         #endregion
+
+
+
 
         #region Otros Métodos
         private static bool ControlDosDestinos(List<Destino> aux)
