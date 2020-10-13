@@ -327,8 +327,6 @@ namespace Dominio
             }
             return asist;
         }
-
-
         #endregion
         #region Método Cotizacion
         //Mostrar Cotización

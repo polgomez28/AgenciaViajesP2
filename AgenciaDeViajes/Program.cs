@@ -191,8 +191,6 @@ namespace AgenciaDeViajes
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
-
-
         private static void MostrarCotizacion()
         {
             int opcion;
