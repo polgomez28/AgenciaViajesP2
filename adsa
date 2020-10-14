@@ -1,0 +1,192 @@
+[33mcommit 4cd7df36a0c25475634cdfa7af10b8d15c51587e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Wed Oct 14 11:34:54 2020 -0300
+
+    constructores diagrama
+
+[33mcommit cc59ec71af4046b002ed792f07263ef10ee3771a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Tue Oct 13 14:00:50 2020 -0300
+
+    ToUpper y ToLower
+
+[33mcommit 450bacdf8700eaab936ba11125eb85530c7bdafd[m
+Merge: 4a92553 27e5b0f
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Tue Oct 13 12:17:40 2020 -0300
+
+    Actualizado Excursiones
+
+[33mcommit 4a92553dbf81e603aa085b4bfea2da681a370924[m
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Tue Oct 13 12:14:10 2020 -0300
+
+    Modifiqué Listar excursiones y algunas precargas
+
+[33mcommit 27e5b0feb28e92a73f8f84fd6f3ecb11e80210ae[m
+Author: jotape88 <jota171088@gmail.com>
+Date:   Tue Oct 13 03:11:51 2020 -0300
+
+    astah actualizado
+
+[33mcommit 192d0146c47e70464c50060f68c824f5c3ef9546[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 22:11:17 2020 -0300
+
+    Se quitan espacios
+
+[33mcommit 9a431508f0296cab055732a09ac3ade4abc2c56d[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 22:05:28 2020 -0300
+
+    Ultimas Modificaciones
+
+[33mcommit 4b82d88522b784f2aa5bd74d6200acdbb9f27e07[m
+Merge: 32eead5 0e5d7d3
+Author: jotape88 <jota171088@gmail.com>
+Date:   Mon Oct 12 20:30:26 2020 -0300
+
+    agregados los totales de excursiones FINAL
+
+[33mcommit 32eead51877501c2e8019913683ba4384e58e5ed[m
+Author: jotape88 <jota171088@gmail.com>
+Date:   Mon Oct 12 20:25:40 2020 -0300
+
+    totales de excursiones
+
+[33mcommit 0e5d7d3279a81a58bc639e21e032c4af8b6546bc[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 20:24:06 2020 -0300
+
+    uml
+
+[33mcommit ad7a78706eddc37eec2f18c31a11daddd76fd98e[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 19:50:50 2020 -0300
+
+    AltaExcursiones Eliminado
+
+[33mcommit 0872a4a04c24e7a3f53b7ed58194fb6d39f732ca[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 19:45:18 2020 -0300
+
+    ListarExcursionesEnFecha
+
+[33mcommit 1cbd376945e0f084251bec5453caf05e41dfad22[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 15:17:10 2020 -0300
+
+    mergeAngel
+
+[33mcommit 4f66fa4119080d846e810e2b4f0fca93e756dc6c[m
+Merge: 27860cc 6ccd71e
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 15:15:24 2020 -0300
+
+    Merge branch 'master' of https://github.com/polgomez28/AgenciaViajesP2
+    Cambios de Angel
+
+[33mcommit 27860cc05426e0f7882198331255aa261ae4dbd4[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 15:03:55 2020 -0300
+
+    validacion listados
+
+[33mcommit 6ccd71e67463c791da9efe60de66882dca9f0d84[m
+Merge: 04dcda1 271acb2
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Mon Oct 12 15:02:06 2020 -0300
+
+    Metodos Fecha
+
+[33mcommit 04dcda1b5969bb98e7d180f9801519e9976443b9[m
+Merge: c98d2df dec215b
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Mon Oct 12 14:56:55 2020 -0300
+
+    Métodos para ver excursiones por fechas
+
+[33mcommit 271acb2e54478adfbddc55163309bbcab2e47e6a[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 12:31:09 2020 -0300
+
+    Se mejora validaciones en precarga de excusiones y destinos
+
+[33mcommit c98d2df545ca5b7ec8ee56331ec58c202cddfa6c[m
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Mon Oct 12 12:17:44 2020 -0300
+
+    Excursiones entre fechas
+
+[33mcommit dec215b3f4f51cc0cc458ab232487e82acf34427[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 10:08:38 2020 -0300
+
+    Limpieza código
+
+[33mcommit 4a10e6696f42d5665558e1e63be494ceeea2ab0b[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 10:04:02 2020 -0300
+
+    Se modifica texto del menu
+
+[33mcommit 34403495f0afed693c3c06c10b59b9c1804a9b13[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 09:58:31 2020 -0300
+
+    Limpieza de código -Region-
+
+[33mcommit 55480b8bff59044dc231c60b7a7a0485653f70e3[m
+Author: polg <polg28@gmail.com>
+Date:   Mon Oct 12 09:40:39 2020 -0300
+
+    Se limpia código
+
+[33mcommit 619116bc911579428e6b9f6d76485834d3abde33[m
+Merge: e1e1f5b 8381766
+Author: polg <polg28@gmail.com>
+Date:   Sun Oct 11 22:07:34 2020 -0300
+
+    Cambios nuevos
+
+[33mcommit e1e1f5b70c256d25416f451ffcdc58ddcf840e25[m
+Author: polg <polg28@gmail.com>
+Date:   Sun Oct 11 21:42:01 2020 -0300
+
+    ToString de Internaciona, Nacional y Compania
+
+[33mcommit 99f497769bba71c11ed4d5dddba900552baed02c[m
+Author: polg <polg28@gmail.com>
+Date:   Sun Oct 11 20:00:00 2020 -0300
+
+    .
+
+[33mcommit 8381766b6c2166d731974eeb7843850a65db167c[m
+Author: Angel <angel.larrosa85@gmail.com>
+Date:   Sun Oct 11 19:46:15 2020 -0300
+
+    Ultima Version
+
+[33mcommit ac40757a278e7efc5ffeecfa9f21392392b72b46[m
+Author: jotape88 <jota171088@gmail.com>
+Date:   Sat Oct 10 00:56:48 2020 -0300
+
+    Tareas Actualizadas
+
+[33mcommit 58aed8a3e9ff5bb2a1b7412e75e3c165b703e3e2[m
+Author: jotape88 <jota171088@gmail.com>
+Date:   Sat Oct 10 00:51:14 2020 -0300
+
+    dolar arreglado
+
+[33mcommit 8726d138abe0b084645ed9e3f400b3475eecbf90[m
+Author: polg <polg28@gmail.com>
+Date:   Fri Oct 9 16:03:36 2020 -0300
+
+    Quedan prontas las opciones 2, 4 y 5
+
+[33mcommit 820a02f4f17fb1df4f1fc886555800cd62fb4ced[m
+Author: polg <polg28@gmail.com>
+Date:   Fri Oct 9 12:59:28 2020 -0300
+
+    Nuevo Repositorio

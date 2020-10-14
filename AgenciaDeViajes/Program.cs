@@ -67,7 +67,7 @@ namespace AgenciaDeViajes
 
 
         }
-
+        //Método donde permite agregar textos
         private static string PedirTexto(string mensaje)
         {
             Console.WriteLine(mensaje);
@@ -105,6 +105,7 @@ namespace AgenciaDeViajes
                 Console.WriteLine(msgError);
             }
         }
+        //Método que nos permite agregar solo números
         private static int PedirNumero(string mensaje = "Ingrese el numero")
         {
             int num;
@@ -123,6 +124,7 @@ namespace AgenciaDeViajes
             return num;
         }
 
+        //Método que nos permite agregar fechas válidas
         private static DateTime PedirFecha(string mensaje = "Ingres la fecha:")
         {
             DateTime fecha;
@@ -152,7 +154,7 @@ namespace AgenciaDeViajes
 
             return num;
         }
-
+        //Método para ingresar destinos
         private static void IngresaDestino()
         {
             string ciudad, pais;
@@ -191,6 +193,7 @@ namespace AgenciaDeViajes
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
+        //Método para poder ver la cotización actual
         private static void MostrarCotizacion()
         {
             int opcion;
@@ -217,6 +220,8 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
+
+        
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
@@ -245,6 +250,8 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
+
+        //Método para listar excursiones en un rango de fechas
         private static void ListarExcursionesEnFecha()
         {
 

@@ -12,6 +12,7 @@ namespace Dominio
         private bool esInteres = false;
         #endregion
         #region Constructor
+        //Constructor
         public Nacional(string descipcion, DateTime fecha, int diasTraslados, int stockLugares, bool esInteres, List<Destino> destinos) : base(descipcion, fecha, diasTraslados, stockLugares, destinos)
         {
             this.esInteres = esInteres;
