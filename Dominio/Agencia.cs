@@ -311,6 +311,8 @@ namespace Dominio
             }
             return bandera;
         }
+
+        //Obtengo la lista de excursiones en un rango de fechas
         public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
         {
             List<Excursion> asist = new List<Excursion>();
@@ -324,7 +326,7 @@ namespace Dominio
                         
                         foreach (Destino unDestino in unaExcursion.Destinos)
                         {
-                            if (unDestino.Pais.ToLower().ToUpper() == pais && id != unaExcursion.Id)
+                            if (unDestino.Pais.ToLower() == pais && id != unaExcursion.Id)
                             {
                                 id = unaExcursion.Id;
                                 asist.Add(unaExcursion);
