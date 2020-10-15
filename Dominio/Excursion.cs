@@ -65,7 +65,7 @@ namespace Dominio
             respuesta += "Días traslados: " + diasTraslados + "\n";
             respuesta += "Stock: " + stockLugares + "\n" + "\n";
             respuesta += "-------DESTINOS-------- " + "\n" + "\n";
-            if (destinos != null)
+            if (destinos != null && destinos.Count > 0)
             {
                 for (int i = 0; i < destinos.Count; i++)
                 {
@@ -75,6 +75,10 @@ namespace Dominio
                 }
                 respuesta += ("El Costo total de la excursion en Dolares es de: U$S " + totalUsd + "\n");
                 respuesta += ("El Costo total de la excursion en Pesos es de: $ " + totalPeso + "\n");
+            }
+            if (destinos.Count == 0)
+            {
+                respuesta += ("No tiene destinos asignados"+"\n");
             }
             return respuesta;
         }

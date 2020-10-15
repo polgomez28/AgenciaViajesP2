@@ -46,6 +46,7 @@ namespace Dominio
         private void PrecargasDestinos()
         {
             // Destinos internacionales
+            
             AgregarDestinos("Barcelona", "España", 150, 5);
             AgregarDestinos("Madrid", "España", 150, 5);
             AgregarDestinos("Granada", "España", 150, 5);
@@ -55,6 +56,7 @@ namespace Dominio
             AgregarDestinos("Roma", "Italia", 150, 5);
             AgregarDestinos("Atenas", "Grecia", 150, 5);
             AgregarDestinos("Venecia", "Italia", 150, 5);
+            
             // Destinos Nacionales
             AgregarDestinos("Montevideo", "Uruguay", 150, 5);
             AgregarDestinos("Montevideo", "Uruguay", 150, 5);// prueba de destino ya agregado
@@ -66,6 +68,7 @@ namespace Dominio
             AgregarDestinos("Rivera", "Uruguay", 150, 5);
             AgregarDestinos("Rocha", "Uruguay", 150, 5);
             AgregarDestinos("Fray Bentos", "Uruguay", 150, 5);
+            
         }
         // Precarga excursiones
         private void PrecargarExcursiones()
@@ -76,8 +79,13 @@ namespace Dominio
 
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1000, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
 
+<<<<<<< HEAD
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1100, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
 
+=======
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1000, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
+            
+>>>>>>> 30983feb07778d1cfdcbd43870096de89a24a7c5
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
 
@@ -107,6 +115,7 @@ namespace Dominio
 
             fecha = new DateTime(2020, 08, 01);
             AltaExcursionesInternacionales("Todo Italia", fecha, 4, 25, 1580, 4, DevolverDestino("Roma", "Italia", "Venecia", "Italia"));
+            
         }
         #endregion
         #region Métodos de Alta
@@ -144,19 +153,30 @@ namespace Dominio
         public bool AltaExcursionesInternacionales(string descripcion, DateTime fecha, int diasTraslados, int stockLugares, int idExcursion, int idCompania, List<Destino> destinos)
         {
             bool exito = false, existe = BuscarExcursion(idExcursion);
+            int contador = 0;
             if (!existe)
             {
-                CompaniaAerea unCompania = ObtenerCompania(idCompania);
-                if (unCompania != null && destinos != null)
+                foreach (Destino unDestino in destinos)
                 {
-             
+                    if (NoNacional(unDestino.Pais))
+                    {
+                        contador++;
+                    }
+                }
+                CompaniaAerea unCompania = ObtenerCompania(idCompania);
+                if (unCompania != null && destinos != null && contador == 2)
+                {
                     Internacional unInter = new Internacional(descripcion, fecha, diasTraslados, stockLugares, unCompania, destinos);
                     excursiones.Add(unInter);
                     exito = true;
-                         
                 }
             }
             return exito;
+        }
+        public bool NoNacional(string pais)
+        {
+
+            return pais != "Uruguay";
         }
         //Ultimo Método actualizado de Agregar Destino
         public bool AgregarDestinos(string ciudad, string pais, decimal costo, decimal cantidadDias)
@@ -165,10 +185,16 @@ namespace Dominio
             if (BuscarDestino(ciudad) == null)
             {
                 Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
-                unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
-                //unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
-                destinos.Add(unDestino);
-                exito = true;
+                if (unDestino.ValidarDestino(ciudad, pais, costo, cantidadDias))
+                {
+                    unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
+                    destinos.Add(unDestino);
+                    exito = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Destino ya existe");
             }
             return exito;
         }
@@ -206,9 +232,7 @@ namespace Dominio
                 i++;
             }
             return encontre;
-        }
-
-            
+        }    
         // Obtener compania a partir del id
         private CompaniaAerea ObtenerCompania(int idCompania)
         {
@@ -282,11 +306,14 @@ namespace Dominio
         public List<Destino> DevolverDestino(string ciudad, string pais, string ciudad2, string pais2)
         {
             List<Destino> aux = new List<Destino>();
-            foreach (Destino unDestino in destinos)
+            if (ciudad+pais != ciudad2+pais2)
             {
-                if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2 || ciudad != ciudad2 && pais != pais2)
+                foreach (Destino unDestino in destinos)
                 {
-                    aux.Add(unDestino);
+                    if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2 || ciudad != ciudad2 && pais != pais2)
+                    {
+                        aux.Add(unDestino);
+                    }
                 }
             }
             // Dejo en null la lista si los destinos ya estan asignados en alguna otra excursion.
