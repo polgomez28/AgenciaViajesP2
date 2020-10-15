@@ -375,10 +375,6 @@ namespace Dominio
             return valido;
         }
         #endregion
-
-
-
-
         #region Otros Métodos
         private static bool ControlDosDestinos(List<Destino> aux)
         {
