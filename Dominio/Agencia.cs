@@ -79,8 +79,8 @@ namespace Dominio
 
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1300, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
 
-            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1200, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
-
+            AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1000, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
+            /*
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
 
@@ -110,6 +110,7 @@ namespace Dominio
 
             fecha = new DateTime(2020, 08, 01);
             AltaExcursionesInternacionales("Todo Italia", fecha, 4, 25, 1580, 4, DevolverDestino("Roma", "Italia", "Venecia", "Italia"));
+            */
         }
         #endregion
         #region Métodos de Alta
