@@ -80,7 +80,7 @@ namespace Dominio
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1300, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay"));
 
             AltaExcursionNacional("Cabo Polonio", fecha, 5, 45, 1000, true, DevolverDestino("Montevideo", "Uruguay", "Montevideo", "Uruguay")); // No debe aparecer en los listados. Misma Ciudad-Pais en los dos destinos
-            /*
+            
             fecha = new DateTime(2020, 01, 10);
             AltaExcursionNacional("Portezuelo", fecha, 5, 45, 1000, true, DevolverDestino("Salto", "Uruguay", "Artigas", "Uruguay"));
 
@@ -110,7 +110,7 @@ namespace Dominio
 
             fecha = new DateTime(2020, 08, 01);
             AltaExcursionesInternacionales("Todo Italia", fecha, 4, 25, 1580, 4, DevolverDestino("Roma", "Italia", "Venecia", "Italia"));
-            */
+            
         }
         #endregion
         #region Métodos de Alta
@@ -301,11 +301,14 @@ namespace Dominio
         public List<Destino> DevolverDestino(string ciudad, string pais, string ciudad2, string pais2)
         {
             List<Destino> aux = new List<Destino>();
-            foreach (Destino unDestino in destinos)
+            if (ciudad+pais != ciudad2+pais2)
             {
-                if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2 || ciudad != ciudad2 && pais != pais2)
+                foreach (Destino unDestino in destinos)
                 {
-                    aux.Add(unDestino);
+                    if (unDestino.Ciudad == ciudad && unDestino.Pais == pais || unDestino.Ciudad == ciudad2 && unDestino.Pais == pais2 || ciudad != ciudad2 && pais != pais2)
+                    {
+                        aux.Add(unDestino);
+                    }
                 }
             }
             // Dejo en null la lista si los destinos ya estan asignados en alguna otra excursion.

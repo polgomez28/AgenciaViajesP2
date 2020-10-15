@@ -162,12 +162,9 @@ namespace AgenciaDeViajes
             pais = PedirTexto("Ingrese el pais");
             costo = PedirNumero("Ingrese el costo");
             cantidadDias = PedirNumero("Ingrese los días");
-<<<<<<< HEAD
             if (unaAgencia.AgregarDestinos(ciudad, pais, costo, cantidadDias))
-=======
 
             if (Destino.ValidarString2(ciudad) && Destino.ValidarString2(pais) && Destino.ValidarEnteros(costo) && Destino.ValidarEnteros(cantidadDias))
->>>>>>> 00735c255014b439221d6fe9060751a0dccf823d
             {
                 Console.WriteLine("Alta destino OK");   
             }

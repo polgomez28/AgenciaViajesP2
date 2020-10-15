@@ -43,7 +43,7 @@ namespace Dominio
         {
             
             get {
-                costoEstadiaPesos = costo * cantidadDias * Agencia.Dolar;
+                costoEstadiaPesos = (costo * cantidadDias) * Agencia.Dolar;
                
                 //unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
 
@@ -68,7 +68,7 @@ namespace Dominio
             respuesta += "Costo diario: " + costo + "\n";
             respuesta += "Cantidad de días: " + cantidadDias + "\n";
             respuesta += "Costo estadía por persona: u$s" + costoEstadia + "\n";
-            respuesta += "Costo estadía por persona: $" + costoEstadiaPesos + "\n";
+            respuesta += "Costo estadía por persona: $" + (costo * cantidadDias) * Agencia.Dolar + "\n";
             return respuesta;
         }
         //Validar string mayores a 3 caracteres
