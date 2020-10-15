@@ -67,7 +67,7 @@ namespace AgenciaDeViajes
 
 
         }
-        //Método donde permite agregar textos
+
         private static string PedirTexto(string mensaje)
         {
             Console.WriteLine(mensaje);
@@ -105,7 +105,6 @@ namespace AgenciaDeViajes
                 Console.WriteLine(msgError);
             }
         }
-        //Método que nos permite agregar solo números
         private static int PedirNumero(string mensaje = "Ingrese el numero")
         {
             int num;
@@ -124,7 +123,6 @@ namespace AgenciaDeViajes
             return num;
         }
 
-        //Método que nos permite agregar fechas válidas
         private static DateTime PedirFecha(string mensaje = "Ingres la fecha:")
         {
             DateTime fecha;
@@ -154,28 +152,19 @@ namespace AgenciaDeViajes
 
             return num;
         }
-        //Método para ingresar destinos
+
         private static void IngresaDestino()
         {
             string ciudad, pais;
             decimal costo;
             decimal cantidadDias;
-            bool bandera = false;
             ciudad = PedirTexto("Ingrese la ciudad");
             pais = PedirTexto("Ingrese el pais");
             costo = PedirNumero("Ingrese el costo");
             cantidadDias = PedirNumero("Ingrese los días");
-            if (Destino.ValidarString2(ciudad) && Destino.ValidarString2(pais) && Destino.ValidarEnteros(costo) && Destino.ValidarEnteros(cantidadDias))
+            if (unaAgencia.AgregarDestinos(ciudad, pais, costo, cantidadDias))
             {
-                bandera = unaAgencia.AgregarDestinos(ciudad, pais, costo, cantidadDias);
-                if (bandera)
-                {
-                    Console.WriteLine("Alta destino OK");
-                }
-                else
-                {
-                    Console.WriteLine("Error, algo salió mal. Verifique que lo ingresado este correcto.");
-                }
+                Console.WriteLine("Alta destino OK");   
             }
             else
             {
@@ -193,7 +182,6 @@ namespace AgenciaDeViajes
             List<Destino> asist = unaAgencia.Destinos();
             MostrarListaDestinos(asist, "No hay destinos.");
         }
-        //Método para poder ver la cotización actual
         private static void MostrarCotizacion()
         {
             int opcion;
@@ -220,8 +208,6 @@ namespace AgenciaDeViajes
             } while (!salir);
 
         }
-
-        
         private static void ModificarCotizacion()
         {
             decimal cotizacion;
@@ -250,8 +236,6 @@ namespace AgenciaDeViajes
                 Console.ReadKey();
             }
         }
-
-        //Método para listar excursiones en un rango de fechas
         private static void ListarExcursionesEnFecha()
         {
 

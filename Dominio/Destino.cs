@@ -88,6 +88,14 @@ namespace Dominio
             return nombre.Length >= 2;
         }
         #endregion
-
+        public bool ValidarDestino(string ciudad, string pais, decimal costo, decimal cantidadDias)
+        {
+            bool bandera = false;
+            if (ValidarString2(ciudad) && ValidarString2(pais) && ValidarEnteros(costo) && ValidarEnteros(cantidadDias))
+            {
+                bandera = true;
+            }
+            return bandera;
+        }
     }
 }

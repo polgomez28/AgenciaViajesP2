@@ -46,6 +46,7 @@ namespace Dominio
         private void PrecargasDestinos()
         {
             // Destinos internacionales
+            
             AgregarDestinos("Barcelona", "España", 150, 5);
             AgregarDestinos("Madrid", "España", 150, 5);
             AgregarDestinos("Granada", "España", 150, 5);
@@ -55,6 +56,7 @@ namespace Dominio
             AgregarDestinos("Roma", "Italia", 150, 5);
             AgregarDestinos("Atenas", "Grecia", 150, 5);
             AgregarDestinos("Venecia", "Italia", 150, 5);
+            
             // Destinos Nacionales
             AgregarDestinos("Montevideo", "Uruguay", 150, 5);
             AgregarDestinos("Montevideo", "Uruguay", 150, 5);// prueba de destino ya agregado
@@ -66,6 +68,7 @@ namespace Dominio
             AgregarDestinos("Rivera", "Uruguay", 150, 5);
             AgregarDestinos("Rocha", "Uruguay", 150, 5);
             AgregarDestinos("Fray Bentos", "Uruguay", 150, 5);
+            
         }
         // Precarga excursiones
         private void PrecargarExcursiones()
@@ -144,19 +147,30 @@ namespace Dominio
         public bool AltaExcursionesInternacionales(string descripcion, DateTime fecha, int diasTraslados, int stockLugares, int idExcursion, int idCompania, List<Destino> destinos)
         {
             bool exito = false, existe = BuscarExcursion(idExcursion);
+            int contador = 0;
             if (!existe)
             {
-                CompaniaAerea unCompania = ObtenerCompania(idCompania);
-                if (unCompania != null && destinos != null)
+                foreach (Destino unDestino in destinos)
                 {
-             
+                    if (NoNacional(unDestino.Pais))
+                    {
+                        contador++;
+                    }
+                }
+                CompaniaAerea unCompania = ObtenerCompania(idCompania);
+                if (unCompania != null && destinos != null && contador == 2)
+                {
                     Internacional unInter = new Internacional(descripcion, fecha, diasTraslados, stockLugares, unCompania, destinos);
                     excursiones.Add(unInter);
                     exito = true;
-                         
                 }
             }
             return exito;
+        }
+        public bool NoNacional(string pais)
+        {
+
+            return pais != "Uruguay";
         }
         //Ultimo Método actualizado de Agregar Destino
         public bool AgregarDestinos(string ciudad, string pais, decimal costo, decimal cantidadDias)
@@ -165,10 +179,17 @@ namespace Dominio
             if (BuscarDestino(ciudad) == null)
             {
                 Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
-                unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
-                unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
-                destinos.Add(unDestino);
-                exito = true;
+                if (unDestino.ValidarDestino(ciudad, pais, costo, cantidadDias))
+                {
+                    unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
+                    //unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
+                    destinos.Add(unDestino);
+                    exito = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Destino ya existe");
             }
             return exito;
         }
