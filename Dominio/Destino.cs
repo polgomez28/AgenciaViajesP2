@@ -41,9 +41,15 @@ namespace Dominio
         }
         public decimal CostoEstadiaPesos
         {
-            set { costoEstadiaPesos = value; }
-            get { return costoEstadiaPesos; }
+            
+            get {
+                costoEstadiaPesos = costo * cantidadDias * Agencia.Dolar;
+               
+                //unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
+
+                return costoEstadiaPesos; }
         }
+
         public string Ciudad
         {
             get { return ciudad; }

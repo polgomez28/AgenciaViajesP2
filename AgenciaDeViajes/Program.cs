@@ -162,7 +162,12 @@ namespace AgenciaDeViajes
             pais = PedirTexto("Ingrese el pais");
             costo = PedirNumero("Ingrese el costo");
             cantidadDias = PedirNumero("Ingrese los días");
+<<<<<<< HEAD
             if (unaAgencia.AgregarDestinos(ciudad, pais, costo, cantidadDias))
+=======
+
+            if (Destino.ValidarString2(ciudad) && Destino.ValidarString2(pais) && Destino.ValidarEnteros(costo) && Destino.ValidarEnteros(cantidadDias))
+>>>>>>> 00735c255014b439221d6fe9060751a0dccf823d
             {
                 Console.WriteLine("Alta destino OK");   
             }
@@ -243,7 +248,8 @@ namespace AgenciaDeViajes
             DateTime desde = PedirFecha("Ingrese fecha");
             DateTime hasta = PedirFecha("Ingrese fecha");
             string pais = PedirTexto("Ingrese destino: ");
-            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta, pais);
+            string ciudad = PedirTexto("Ingrese la ciudad");
+            List<Excursion> asist = unaAgencia.ListarExcursionesEnFecha(desde, hasta, pais, ciudad);
 
             MostrarListaExcursiones(asist, "No hay excursiones");
         }
