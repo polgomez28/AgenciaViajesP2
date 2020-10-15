@@ -23,7 +23,7 @@ namespace Dominio
         {
             get { return companiasAereas; }
         }
-        public decimal Dolar
+        public static decimal Dolar
         {
             get { return dolar; }
         }
@@ -166,7 +166,7 @@ namespace Dominio
             {
                 Destino unDestino = new Destino(ciudad, pais, costo, cantidadDias);
                 unDestino.CostoEstadia = (unDestino.Costo * unDestino.CantidadDias);
-                unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
+                //unDestino.CostoEstadiaPesos = (unDestino.Costo * unDestino.CantidadDias) * dolar;
                 destinos.Add(unDestino);
                 exito = true;
             }
@@ -313,7 +313,7 @@ namespace Dominio
         }
 
         //Obtengo la lista de excursiones en un rango de fechas
-        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais)
+        public List<Excursion> ListarExcursionesEnFecha(DateTime desde, DateTime hasta, string pais, string ciudad)
         {
             List<Excursion> asist = new List<Excursion>();
             int id = 0;
@@ -323,15 +323,12 @@ namespace Dominio
                 {
                     if (unaExcursion.Fecha >= desde && unaExcursion.Fecha <= hasta)
                     {
-                        
-                        foreach (Destino unDestino in unaExcursion.Destinos)
+                        if (unaExcursion.ExisteDestino(ciudad, pais))
                         {
-                            if (unDestino.Pais.ToLower() == pais && id != unaExcursion.Id)
-                            {
-                                id = unaExcursion.Id;
-                                asist.Add(unaExcursion);
-                            }
+                            id = unaExcursion.Id;
+                            asist.Add(unaExcursion);
                         }
+                        
                     }
                 }
             }
@@ -379,3 +376,4 @@ namespace Dominio
 
     }
 }
+
