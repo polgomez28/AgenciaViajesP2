@@ -22,7 +22,7 @@ namespace Dominio
         #region Constructor
         public Excursion(string descripcion, DateTime fecha, int diasTraslados, int stockLugares, List<Destino> destinos)
         {
-            this.id = GenerarId(id);
+            //this.id = GenerarId(id);
             this.descripcion = descripcion;
             this.fecha = fecha;
             this.diasTraslados = diasTraslados;
